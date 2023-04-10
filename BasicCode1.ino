@@ -7,7 +7,7 @@
 #define LEFT_MOTOR 5
 #define RIGHT_MOTOR 6
 
-// Sensor threshold values (Bhai ye adjust krna pdega)
+// Sensor threshold values (Bhai ye adjust krna pdega) 
 #define THRESH 500
 
 // Motor speed ki value
@@ -33,7 +33,7 @@ void loop() {
   int right = analogRead(RS);
   
   // Check if all sensors are reading black
-  if (left < THRESH && left_center < THRESH && center < THRESH && right_center < THRESH && right < THRESH) {
+  if (left > THRESH && left_center > THRESH && center > THRESH && right_center > THRESH && right > THRESH) {
     // Reached the end of the maze, stop the motors
     digitalWrite(LEFT_MOTOR, LOW);
     digitalWrite(RIGHT_MOTOR, LOW);
@@ -41,34 +41,34 @@ void loop() {
   }
   
   // Determine which direction to turn based on the sensor readings
-  if (left < THRESH) {
+  if (left > THRESH) {
 
     // Turn left
 
 
     digitalWrite(LEFT_MOTOR, LOW);
     analogWrite(RIGHT_MOTOR, TURN_SPEED);
-  } else if (right < THRESH) {
+  } else if (right > THRESH) {
 
     // Turn right
 
     analogWrite(LEFT_MOTOR, TURN_SPEED);
     digitalWrite(RIGHT_MOTOR, LOW);
-  } else if (left_center < THRESH && center < THRESH && right_center < THRESH) {
+  } else if (left_center > THRESH && center > THRESH && right_center > THRESH) {
 
 
     // On a straight line, go straight
 
     analogWrite(LEFT_MOTOR, BASE_SPEED);
     analogWrite(RIGHT_MOTOR, BASE_SPEED);
-  } else if (left_center < THRESH) {
+  } else if (left_center > THRESH) {
 
 
     // Turn slightly left
 
     digitalWrite(LEFT_MOTOR, LOW);
     analogWrite(RIGHT_MOTOR, BASE_SPEED);
-  } else if (right_center < THRESH) {
+  } else if (right_center > THRESH) {
 
     // Turn slightly right
 
