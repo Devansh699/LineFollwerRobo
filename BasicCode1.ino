@@ -5,7 +5,7 @@
 #define RCS A3
 #define RS A4
 #define LEFT_MOTOR 5
-#define RIGHT_MOTOR 6
+#define RIGHT_MOTOR 9
 
 // Sensor threshold values (Bhai ye adjust krna pdega) 
 #define THRESH 500
