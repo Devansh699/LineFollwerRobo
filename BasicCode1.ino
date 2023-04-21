@@ -37,7 +37,6 @@ void loop() {
     // Reached the end of the maze, stop the motors
     digitalWrite(LEFT_MOTOR, LOW);
     digitalWrite(RIGHT_MOTOR, LOW);
-    return;
   }
   
   // Determine which direction to turn based on the sensor readings
